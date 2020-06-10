@@ -30,8 +30,8 @@ def create_token(dict_data):
 
 # Decoding the Received token to verify the user
 def decode_token(token):
-    data = jws.decode(token, 'MY_SECRET_KEY', algorithm='HS256')
-    return data
+    data = jws.verify(token, 'MY_SECRET_KEY', algorithms='HS256')
+    return data.decode()
 
 
 # SignIn or Registration for New User
